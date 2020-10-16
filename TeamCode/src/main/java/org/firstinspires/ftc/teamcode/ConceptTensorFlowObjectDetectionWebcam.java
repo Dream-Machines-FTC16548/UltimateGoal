@@ -76,7 +76,6 @@ public class ConceptTensorFlowObjectDetectionWebcam extends LinearOpMode {
         telemetry.addData(">", "Press Play to start op mode");
         telemetry.update();
         waitForStart();
-
         if (opModeIsActive()) {
             while (opModeIsActive()) {
                 if (tfod != null) {
