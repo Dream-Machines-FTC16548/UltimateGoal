@@ -77,17 +77,17 @@ android {
         release {
             // Disable debugging for release versions so it can be uploaded to Google Play.
             //debuggable true
-            ndk {
-                abiFilters "armeabi-v7a", "arm64-v8a"
-            }
+//            ndk {
+//                abiFilters "armeabi-v7a", "arm64-v8a"
+//            }
         }
         debug {
             debuggable true
             jniDebuggable true
             renderscriptDebuggable true
-            ndk {
-                abiFilters "armeabi-v7a", "arm64-v8a"
-            }
+//            ndk {
+//                abiFilters "armeabi-v7a", "arm64-v8a"
+//            }
         }
     }
 
