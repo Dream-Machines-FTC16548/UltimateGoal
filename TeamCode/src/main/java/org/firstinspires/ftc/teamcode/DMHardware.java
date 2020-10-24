@@ -125,5 +125,13 @@ public class DMHardware {
         return timer.time();
     }
 
+    public void setPowerOfAllMotorsTo(double power)
+    {
 
+            backLeft.setPower(power);
+            backRight.setPower(power);
+            frontLeft.setPower(power);
+            frontRight.setPower(power);
+
+    }
 }
