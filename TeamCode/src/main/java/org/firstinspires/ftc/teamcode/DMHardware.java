@@ -8,6 +8,8 @@ import com.qualcomm.robotcore.hardware.DistanceSensor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
+import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
+
 
 public class DMHardware {
 
@@ -17,6 +19,7 @@ public class DMHardware {
 
     HardwareMap hwMap;
     public ElapsedTime timer = new ElapsedTime();
+    private WebcamName webcamName = null;
 
     public void initTeleOpIMU(HardwareMap hwMap){
 
@@ -35,8 +38,13 @@ public class DMHardware {
 
         backLeft.setDirection(DcMotor.Direction.REVERSE);
         frontLeft.setDirection(DcMotor.Direction.REVERSE);
+
+        webcamName = hwMap.get(WebcamName.class, "Webcam 1");
     }
 
+    public WebcamName getWebcamName() {
+        return webcamName;
+    }
 
     //Sets power of all motors to the same value, and for amount of seconds.
     // Positive values for forwards, and negative for backwards
@@ -125,5 +133,13 @@ public class DMHardware {
         return timer.time();
     }
 
+    public void setPowerOfAllMotorsTo(double power)
+    {
 
+        backLeft.setPower(power);
+        backRight.setPower(power);
+        frontLeft.setPower(power);
+        frontRight.setPower(power);
+
+    }
 }
