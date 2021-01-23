@@ -13,7 +13,7 @@ public class NewTest extends LinearOpMode{
         robot.initTeleOpIMU(hardwareMap);
         telemetry.addLine("Waiting for start");
         telemetry.update();
-
+waitForStart();{}
        robot.timer.reset();
        while (robot.timer.seconds() <= 5){
            robot.backLeft.setPower(.3);
