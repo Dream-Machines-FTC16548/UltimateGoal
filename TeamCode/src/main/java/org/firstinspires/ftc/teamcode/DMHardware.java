@@ -36,8 +36,8 @@ public class DMHardware {
         //distanceBack = hwMap.get(DistanceSensor.class, "distance_back");
         distanceFront = hwMap.get(DistanceSensor.class, "distance_front");
 
-        backLeft.setDirection(DcMotor.Direction.REVERSE);
-        frontLeft.setDirection(DcMotor.Direction.REVERSE);
+        backRight.setDirection(DcMotor.Direction.REVERSE);
+        frontRight.setDirection(DcMotor.Direction.REVERSE);
 
         webcamName = hwMap.get(WebcamName.class, "Webcam 1");
     }
@@ -71,8 +71,8 @@ public class DMHardware {
         while(timer.seconds() <= time){
             backLeft.setPower(-power);
             backRight.setPower(power);
-            frontLeft.setPower(power);
-            frontRight.setPower(-power);
+            frontLeft.setPower( power + 0.01 );
+            frontRight.setPower(-power - 0.07);
         }
         backLeft.setPower(0);
         backRight.setPower(0);
@@ -88,7 +88,7 @@ public class DMHardware {
             backLeft.setPower(power);
             backRight.setPower(-power);
             frontLeft.setPower(-power);
-            frontRight.setPower(power);
+            frontRight.setPower(power + 0.07);
         }
         backLeft.setPower(0);
         backRight.setPower(0);
