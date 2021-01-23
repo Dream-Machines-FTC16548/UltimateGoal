@@ -26,7 +26,7 @@ already connected to 192.168.43.1:5555
 C:\Users\chuan\AppData\Local\Android\Sdk\platform   -tools>adb disconnect
 disconnected everything
 
-C:\Users\chuan\AppData\Local\Android\Sdk\platform-tools>adb connect 192.168.43.1:5555
+C:\Users\chuan\AppData\Local\Android\Sdk\platform-tools>adb connect 192.168.43.1:55558c
 connected to 192.168.43.1:5555
 */
 @TeleOp
