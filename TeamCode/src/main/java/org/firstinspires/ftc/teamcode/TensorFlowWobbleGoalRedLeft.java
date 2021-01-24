@@ -123,7 +123,7 @@ public class TensorFlowWobbleGoalRedLeft extends LinearOpMode {
         String objectCode = LABEL_NO_ELEMENT;
         robot.strafeRightForTime(.2, 2.0 );
         robot.setPowerOfAllMotorsToForTime(.2, 0.75 );
-        if (opModeIsActive()) {
+        if (opModeIsActive()) { 
             robot.timer.reset();
             while (opModeIsActive()) {
                 boolean fFound = false;
