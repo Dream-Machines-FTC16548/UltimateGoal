@@ -43,8 +43,8 @@ public class DMHardware {
         intakeMotor = hwMap.dcMotor.get("intake_motor");
         intakeServoLeft = hwMap.servo.get("intake_servo_left");
         intakeServoRight = hwMap.servo.get("intake_servo_right");
-        backLeft.setDirection(DcMotor.Direction.REVERSE);
-        frontLeft.setDirection(DcMotor.Direction.REVERSE);
+        backRight.setDirection(DcMotor.Direction.REVERSE);
+        frontRight.setDirection(DcMotor.Direction.REVERSE);
         wobbleGoalClaw.setPosition(0);
        webcamName = hwMap.get(WebcamName.class, "Webcam 1");
     }

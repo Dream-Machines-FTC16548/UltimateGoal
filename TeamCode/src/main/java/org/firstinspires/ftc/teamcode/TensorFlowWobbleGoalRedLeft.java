@@ -121,9 +121,9 @@ public class TensorFlowWobbleGoalRedLeft extends LinearOpMode {
 //        sleep(10000);
 //        telemetry.clear();
         String objectCode = LABEL_NO_ELEMENT;
-        robot.strafeRightForTime(.2, 2.0 );
+        robot.strafeRightForTime(.25, 1.5 );
         robot.setPowerOfAllMotorsToForTime(.2, 0.75 );
-        if (opModeIsActive()) { 
+        if (opModeIsActive()) {
             robot.timer.reset();
             while (opModeIsActive()) {
                 boolean fFound = false;
@@ -155,7 +155,7 @@ public class TensorFlowWobbleGoalRedLeft extends LinearOpMode {
 
                 telemetry.addData("Object found: ", objectCode);
                 telemetry.update();
-                robot.strafeRightForTime(-.2, 1.0 );
+                robot.strafeRightForTime(-.3, 1.5 );
                 if (objectCode.equalsIgnoreCase(LABEL_NO_ELEMENT)) {
                     // Move forward until white line
                     while (!isWhite()) {
@@ -171,6 +171,16 @@ public class TensorFlowWobbleGoalRedLeft extends LinearOpMode {
                         robot.setPowerOfAllMotorsTo(.3);
                     }
                     robot.setPowerOfAllMotorsTo(0);
+                    robot.timer.reset();
+                    while (robot.timer.seconds() <= 1) {
+                        robot.wobbleGoalArm.setPower( -.3 );
+                    }
+                    robot.wobbleGoalClaw.setPosition(.5);
+                    sleep(2000);
+                    robot.timer.reset();
+                    while(robot.timer.seconds() <= 1.5){
+                        robot.wobbleGoalArm.setPower(.35);
+                    }
 
                     stop();
                 } else if (objectCode.equalsIgnoreCase(LABEL_FIRST_ELEMENT)) {
