@@ -19,10 +19,10 @@ public class RingArm extends LinearOpMode {
         while (opModeIsActive()) {
 
             if (gamepad1.y) {
-                robot.ringArm.setPower(-0.5);
+                robot.ringArm.setPower(0.25);
             }
             else if (gamepad1.a) {
-                robot.ringArm.setPower(0.5);
+                robot.ringArm.setPower(-0.25);
             }
             else {
                 robot.ringArm.setPower(0);
@@ -31,13 +31,13 @@ public class RingArm extends LinearOpMode {
 
 
             if (gamepad1.x) {
-                robot.ringClaw.setPosition(0.973);
+                robot.ringClaw.setPower(0.5);
             }
             else if (gamepad1.b) {
-                robot.ringClaw.setPosition(0.3);
+                robot.ringClaw.setPower(-0.5);
             }
             else {
-                robot.ringClaw.setPosition(0);
+                robot.ringClaw.setPower(0);
             }
 
         }
