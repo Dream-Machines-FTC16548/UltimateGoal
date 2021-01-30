@@ -6,14 +6,13 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DigitalChannel;
+import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.util.Range;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
 @TeleOp
 public class DMTeleOp extends LinearOpMode {
-    private DcMotor frontRight, frontLeft, backLeft, backRight;
-    //private Servo wobbleClaw;
-    private DigitalChannel lower_sensor, arm_limit;
+    DMHardware robot = new DMHardware();
     private float fwd, side, turn, power, lower_arm_stick, grabber_stick;
     private double clawOffset = 0.5;
     private double rotation_offset = 0.0;
@@ -29,17 +28,13 @@ public class DMTeleOp extends LinearOpMode {
     private double target_grabber = 0.0;
     private double constant_F = -1.0;
 
-    // Gyro related initialization
-    private BNO055IMU imu;
-    private Orientation lastAngles = new Orientation();
-    private double globalAngle, correction;
-
     // Variables
     public final static double deadzone = 0.2;              // Deadzone for bot movement
     public final static double deadzone_hi = 0.9;           // Deadzone for straight movement
     public final static double linear_lower = 0.28;         // Linear servo lower limit
     public final static double linear_upper = 0.615;        // Linear servo upper limit
     public final static double linear_initial = linear_lower;
+    private double globalAngle, correction;
 
     @Override
     public void runOpMode() {
@@ -50,24 +45,10 @@ public class DMTeleOp extends LinearOpMode {
         parameters.accelUnit = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
         parameters.loggingEnabled = false;
 
-        imu = hardwareMap.get(BNO055IMU.class, "imu 1");
-        imu.initialize(parameters);
-
-        // make sure the imu gyro is calibrated before continuing.
-        while (!imu.isGyroCalibrated()) {
-            sleep(50);
-            idle();
-        }
-
         telemetry.addData("Status", "1");
         telemetry.update();
-
         telemetry.addData("Status", "2");
         telemetry.update();
-
-        frontRight.setDirection(DcMotor.Direction.REVERSE);
-        backRight.setDirection(DcMotor.Direction.REVERSE);
-
         telemetry.addData("Status", "3");
         telemetry.update();
         telemetry.addData("Status", "4");
@@ -95,28 +76,28 @@ public class DMTeleOp extends LinearOpMode {
             power = fwd; //this can be tweaked for exponential power increase
 
             if (turn != 0) {
-                // We are turing
+                // We are turning
                 turning = true;
-                frontLeft.setPower(Range.clip(power + turn, -1, 1));
-                frontRight.setPower(Range.clip(power - turn, -1, 1));
-                backLeft.setPower(Range.clip(power + turn, -1, 1));
-                backRight.setPower(Range.clip(power - turn, -1, 1));
+                robot.frontLeft.setPower(Range.clip(power + turn, -1, 1));
+                robot.frontRight.setPower(Range.clip(power - turn, -1, 1));
+                robot.backLeft.setPower(Range.clip(power + turn, -1, 1));
+                robot.backRight.setPower(Range.clip(power - turn, -1, 1));
             } else {
                 // Just finished turning and let it settled down
                 if (turning) {
-                    frontLeft.setPower(0);
-                    frontRight.setPower(0);
-                    backLeft.setPower(0);
-                    backRight.setPower(0);
+                    robot.frontLeft.setPower(0);
+                    robot.frontRight.setPower(0);
+                    robot.backLeft.setPower(0);
+                    robot.backRight.setPower(0);
                     sleep(500);
 
                     turning = false;
                 }
                 power = -power;
-                frontLeft.setPower(Range.clip(power + side + correction, -1, 1));
-                frontRight.setPower(Range.clip(power - side - correction, -1, 1));
-                backLeft.setPower(Range.clip(power - side + correction, -1, 1));
-                backRight.setPower(Range.clip(power + side - correction, -1, 1));
+                robot.frontLeft.setPower(Range.clip(power + side + correction, -1, 1));
+                robot.frontRight.setPower(Range.clip(power - side - correction, -1, 1));
+                robot.backLeft.setPower(Range.clip(power - side + correction, -1, 1));
+                robot.backRight.setPower(Range.clip(power + side - correction, -1, 1));
             }
         }
     }
