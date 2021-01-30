@@ -4,9 +4,6 @@ import org.firstinspires.ftc.teamcode.DMHardware;
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DigitalChannel;
-import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.util.Range;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
@@ -98,6 +95,24 @@ public class DMTeleOp extends LinearOpMode {
                 robot.frontRight.setPower(Range.clip(power - side - correction, -1, 1));
                 robot.backLeft.setPower(Range.clip(power - side + correction, -1, 1));
                 robot.backRight.setPower(Range.clip(power + side - correction, -1, 1));
+                if (gamepad2.y) {
+                    robot.ringGrabberArm.setPower(0.175);
+                }
+                else if (gamepad2.a) {
+                    robot.ringGrabberArm.setPower(-0.175);
+                }
+                else {
+                    robot.ringGrabberArm.setPower(0);
+                }
+                if (gamepad2.x) {
+                    robot.ringGrabberClaw.setPower(0.75);
+                }
+                else if (gamepad2.b) {
+                    robot.ringGrabberClaw.setPower(-0.75);
+                }
+                else {
+                    robot.ringGrabberArm.setPower(0);
+                }
             }
         }
     }
