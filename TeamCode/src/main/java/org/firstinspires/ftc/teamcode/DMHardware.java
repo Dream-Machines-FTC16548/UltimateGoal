@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
 
+import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
@@ -17,7 +18,8 @@ public class DMHardware {
     public DcMotor frontLeft, backLeft, frontRight, backRight, wobbleGoalArm, intakeMotor, ringGrabberArm;
     public ColorSensor colorLeft, colorRight;
     public DistanceSensor distanceFront;
-    public Servo wobbleGoalClaw, intakeServoLeft, intakeServoRight, ringGrabberClaw;
+    public Servo wobbleGoalClaw, intakeServoLeft, intakeServoRight;
+    public CRServo ringGrabberClaw;
 
     HardwareMap hwMap;
 
@@ -44,7 +46,7 @@ public class DMHardware {
         intakeServoLeft = hwMap.servo.get("intake_servo_left");
         intakeServoRight = hwMap.servo.get("intake_servo_right");
         ringGrabberArm = hwMap.dcMotor.get("ring_arm");
-        ringGrabberClaw = hwMap.servo.get("ring_claw");
+        ringGrabberClaw = hwMap.crservo.get("ring_claw");
         backRight.setDirection(DcMotor.Direction.REVERSE);
         frontRight.setDirection(DcMotor.Direction.REVERSE);
         wobbleGoalClaw.setPosition(0);
