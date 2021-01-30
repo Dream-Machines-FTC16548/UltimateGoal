@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
 
+import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
@@ -14,10 +15,11 @@ import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
 
 public class DMHardware {
 
-    public DcMotor frontLeft, backLeft, frontRight, backRight, wobbleGoalArm, intakeMotor;
+    public DcMotor frontLeft, backLeft, frontRight, backRight, wobbleGoalArm, ringArm, intakeMotor;
     public ColorSensor colorLeft, colorRight;
     public DistanceSensor distanceFront;
     public Servo wobbleGoalClaw, intakeServoLeft, intakeServoRight;
+    public CRServo ringClaw;
 
     HardwareMap hwMap;
 
