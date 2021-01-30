@@ -4,6 +4,7 @@ import org.firstinspires.ftc.teamcode.DMHardware;
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.util.Range;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
@@ -35,6 +36,7 @@ public class DMTeleOp extends LinearOpMode {
 
     @Override
     public void runOpMode() {
+        robot.initTeleOpIMU(hardwareMap);
         // Gyro initialization and calibration
         BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
         parameters.mode = BNO055IMU.SensorMode.IMU;
@@ -111,12 +113,27 @@ public class DMTeleOp extends LinearOpMode {
                     robot.ringGrabberClaw.setPower(-0.75);
                 }
                 else {
-                    robot.ringGrabberArm.setPower(0);
+                    robot.ringGrabberClaw.setPower(0);
+                }
+                if (gamepad2.dpad_up) {
+                    robot.wobbleGoalArm.setPower(0.175);
+                }
+                else if (gamepad2.dpad_down) {
+                    robot.wobbleGoalArm.setPower(-0.175);
+                }
+                else {
+                    robot.wobbleGoalArm.setPower(0);
+                }
+                if (gamepad2.dpad_left) {
+                    robot.wobbleGoalClaw.setPosition(0.5);
+                }
+                else if (gamepad2.dpad_right) {
+                    robot.wobbleGoalClaw.setPosition(0.1);
                 }
             }
+
         }
     }
-
     void getGamePadValues() {
         fwd = gamepad1.left_stick_y;                // For mecanum drive forward and backward
         side = gamepad1.left_stick_x;               // For mecanum drive sideway
