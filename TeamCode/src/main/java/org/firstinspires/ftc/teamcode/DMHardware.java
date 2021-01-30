@@ -50,6 +50,7 @@ public class DMHardware {
         backRight.setDirection(DcMotor.Direction.REVERSE);
         frontRight.setDirection(DcMotor.Direction.REVERSE);
         wobbleGoalClaw.setPosition(0);
+
        webcamName = hwMap.get(WebcamName.class, "Webcam 1");
     }
 
@@ -61,13 +62,13 @@ public class DMHardware {
     // Positive values for forwards, and negative for backwards
     public void setPowerOfAllMotorsToForTime(double power, double time)
     {
-     timer.reset();
-     while(timer.seconds() <= time){
-        backLeft.setPower(power);
-        backRight.setPower(power);
-        frontLeft.setPower(power);
-        frontRight.setPower(power);
-     }
+        timer.reset();
+        while(timer.seconds() <= time){
+            backLeft.setPower(power);
+            backRight.setPower(power);
+            frontLeft.setPower(power);
+            frontRight.setPower(power);
+        }
         backLeft.setPower(0);
         backRight.setPower(0);
         frontLeft.setPower(0);
