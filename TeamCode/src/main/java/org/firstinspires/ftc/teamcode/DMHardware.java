@@ -42,9 +42,9 @@ public class DMHardware {
         distanceFront = hwMap.get(DistanceSensor.class, "distance_front");
         wobbleGoalArm = hwMap.dcMotor.get("wobble_arm");
         wobbleGoalClaw = hwMap.servo.get("wobble_claw");
-        intakeMotor = hwMap.dcMotor.get("intake_motor");
-        intakeServoLeft = hwMap.servo.get("intake_servo_left");
-        intakeServoRight = hwMap.servo.get("intake_servo_right");
+//        intakeMotor = hwMap.dcMotor.get("intake_motor");
+//        intakeServoLeft = hwMap.servo.get("intake_servo_left");
+//        intakeServoRight = hwMap.servo.get("intake_servo_right");
         ringGrabberArm = hwMap.dcMotor.get("ring_arm");
         ringGrabberClaw = hwMap.crservo.get("ring_claw");
         backRight.setDirection(DcMotor.Direction.REVERSE);
