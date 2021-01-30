@@ -14,10 +14,10 @@ import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
 
 public class DMHardware {
 
-    public DcMotor frontLeft, backLeft, frontRight, backRight, wobbleGoalArm, intakeMotor;
+    public DcMotor frontLeft, backLeft, frontRight, backRight, wobbleGoalArm, intakeMotor, ringGrabberArm;
     public ColorSensor colorLeft, colorRight;
     public DistanceSensor distanceFront;
-    public Servo wobbleGoalClaw, intakeServoLeft, intakeServoRight;
+    public Servo wobbleGoalClaw, intakeServoLeft, intakeServoRight, ringGrabberClaw;
 
     HardwareMap hwMap;
 
@@ -43,6 +43,8 @@ public class DMHardware {
         intakeMotor = hwMap.dcMotor.get("intake_motor");
         intakeServoLeft = hwMap.servo.get("intake_servo_left");
         intakeServoRight = hwMap.servo.get("intake_servo_right");
+        ringGrabberArm = hwMap.dcMotor.get("ring_arm");
+        ringGrabberClaw = hwMap.servo.get("ring_claw");
         backRight.setDirection(DcMotor.Direction.REVERSE);
         frontRight.setDirection(DcMotor.Direction.REVERSE);
         wobbleGoalClaw.setPosition(0);
