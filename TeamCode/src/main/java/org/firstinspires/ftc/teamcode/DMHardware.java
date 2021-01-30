@@ -15,7 +15,7 @@ import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
 
 public class DMHardware {
 
-    public DcMotor frontLeft, backLeft, frontRight, backRight, wobbleGoalArm, ringArm, intakeMotor;
+    public DcMotor frontLeft, backLeft, frontRight, backRight, wobbleGoalArm, intakeMotor, ringArm;
     public ColorSensor colorLeft, colorRight;
     public DistanceSensor distanceFront;
     public Servo wobbleGoalClaw, intakeServoLeft, intakeServoRight;
@@ -36,18 +36,29 @@ public class DMHardware {
         backRight = hwMap.dcMotor.get("back_right");
         frontLeft = hwMap.dcMotor.get("front_left");
         frontRight = hwMap.dcMotor.get("front_right");
+
         colorLeft = hwMap.get(ColorSensor.class,"color_left");
         colorRight = hwMap.get(ColorSensor.class,"color_right");
+
         //distanceBack = hwMap.get(DistanceSensor.class, "distance_back");
         distanceFront = hwMap.get(DistanceSensor.class, "distance_front");
+
         wobbleGoalArm = hwMap.dcMotor.get("wobble_arm");
         wobbleGoalClaw = hwMap.servo.get("wobble_claw");
+        wobbleGoalClaw.setPosition(0.5);
+
         intakeMotor = hwMap.dcMotor.get("intake_motor");
         intakeServoLeft = hwMap.servo.get("intake_servo_left");
         intakeServoRight = hwMap.servo.get("intake_servo_right");
-        backRight.setDirection(DcMotor.Direction.REVERSE);
-        frontRight.setDirection(DcMotor.Direction.REVERSE);
+
+        ringArm = hwMap.dcMotor.get("ring_arm");
+        // ringClaw = hwMap.servo.get("ring_claw");
+        ringClaw = hwMap.crservo.get("ring_claw");
+
+        backLeft.setDirection(DcMotor.Direction.REVERSE);
+        frontLeft.setDirection(DcMotor.Direction.REVERSE);
         wobbleGoalClaw.setPosition(0);
+
        webcamName = hwMap.get(WebcamName.class, "Webcam 1");
     }
 
