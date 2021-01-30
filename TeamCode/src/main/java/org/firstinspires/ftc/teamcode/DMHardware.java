@@ -57,7 +57,7 @@ public class DMHardware {
 
         backLeft.setDirection(DcMotor.Direction.REVERSE);
         frontLeft.setDirection(DcMotor.Direction.REVERSE);
-        wobbleGoalClaw.setPosition(0.5);
+        wobbleGoalClaw.setPosition(0);
 
        webcamName = hwMap.get(WebcamName.class, "Webcam 1");
     }
