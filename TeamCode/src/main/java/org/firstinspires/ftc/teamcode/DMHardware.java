@@ -83,8 +83,8 @@ public class DMHardware {
         while(timer.seconds() <= time){
             backLeft.setPower(-power);
             backRight.setPower(power);
-            frontLeft.setPower( power + 0.01 );
-            frontRight.setPower(-power - 0.07);
+            frontLeft.setPower( power );
+            frontRight.setPower(-power);
         }
         backLeft.setPower(0);
         backRight.setPower(0);
@@ -100,7 +100,7 @@ public class DMHardware {
             backLeft.setPower(power);
             backRight.setPower(-power);
             frontLeft.setPower(-power);
-            frontRight.setPower(power + 0.07);
+            frontRight.setPower(power);
         }
         backLeft.setPower(0);
         backRight.setPower(0);
