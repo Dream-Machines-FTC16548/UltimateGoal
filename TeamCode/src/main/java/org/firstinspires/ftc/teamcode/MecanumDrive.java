@@ -39,25 +39,25 @@ public class MecanumDrive extends LinearOpMode {
 
 
             if (gamepad2.y) {
-                robot.ringArm.setPower(0.175);
+                robot.ringGrabberArm.setPower(0.175);
             }
             else if (gamepad2.a) {
-                robot.ringArm.setPower(-0.175);
+                robot.ringGrabberArm.setPower(-0.175);
             }
             else {
-                robot.ringArm.setPower(0);
+                robot.ringGrabberArm.setPower(0);
             }
 
 
 
             if (gamepad2.x) {
-                robot.ringClaw.setPower(0.75);
+                robot.ringGrabberClaw.setPower(0.75);
             }
             else if (gamepad2.b) {
-                robot.ringClaw.setPower(-0.75);
+                robot.ringGrabberClaw.setPower(-0.75);
             }
             else {
-                robot.ringClaw.setPower(0);
+                robot.ringGrabberClaw.setPower(0);
             }
         }
 

@@ -19,25 +19,25 @@ public class RingArm extends LinearOpMode {
         while (opModeIsActive()) {
 
             if (gamepad1.y) {
-                robot.ringArm.setPower(0.25);
+                robot.ringGrabberArm.setPower(0.25);
             }
             else if (gamepad1.a) {
-                robot.ringArm.setPower(-0.25);
+                robot.ringGrabberArm.setPower(-0.25);
             }
             else {
-                robot.ringArm.setPower(0);
+                robot.ringGrabberArm.setPower(0);
             }
 
 
 
             if (gamepad1.x) {
-                robot.ringClaw.setPower(0.5);
+                robot.ringGrabberClaw.setPower(0.5);
             }
             else if (gamepad1.b) {
-                robot.ringClaw.setPower(-0.5);
+                robot.ringGrabberClaw.setPower(-0.5);
             }
             else {
-                robot.ringClaw.setPower(0);
+                robot.ringGrabberClaw.setPower(0);
             }
 
         }
