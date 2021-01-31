@@ -482,7 +482,7 @@ public class Mecanum_Drive extends LinearOpMode {
 //            telemetry.update();
 //            lowerArm.setTargetPosition(lowerArm.getCurrentPosition() - arm_down_step);
 //           lowerArm.setPower(arm_down_power);
-    }
+        }
 //        lowerArm.setPower(0);
 //        lowerArm.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 //        lowerArm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
@@ -490,21 +490,21 @@ public class Mecanum_Drive extends LinearOpMode {
 //        telemetry.addData("Status", "8");
 //        telemetry.addData("LINEAR=", linear_motor.getCurrentPosition());
 //        telemetry.update();
-    // Initialize arm motor position
+        // Initialize arm motor position
 //        linear_motor.setTargetPosition(linear_motor.getCurrentPosition() + 200);
 //        linear_motor.setPower(linear_motor_up_power);
 
 //        telemetry.addData("Status", "9");
-    //telemetry.addData("LINEAR=", linear_motor.getCurrentPosition());
+        //telemetry.addData("LINEAR=", linear_motor.getCurrentPosition());
 //        telemetry.update();
 
 //        while (arm_limit.getState()) {
-    //linear_motor.setTargetPosition(linear_motor.getCurrentPosition() - (int) (linear_motor_down_step * 0.1 ));
-    //linear_motor.setPower(linear_motor_down_power * 0.1 );
-    //}
-    //linear_motor.setPower(0);
-    //linear_motor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-    //linear_motor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            //linear_motor.setTargetPosition(linear_motor.getCurrentPosition() - (int) (linear_motor_down_step * 0.1 ));
+            //linear_motor.setPower(linear_motor_down_power * 0.1 );
+        //}
+        //linear_motor.setPower(0);
+        //linear_motor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        //linear_motor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 //        telemetry.addData("Status", "10");
 //        telemetry.update();
 
@@ -609,3 +609,62 @@ public class Mecanum_Drive extends LinearOpMode {
         return correction;
 */
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//uwu///uwu
