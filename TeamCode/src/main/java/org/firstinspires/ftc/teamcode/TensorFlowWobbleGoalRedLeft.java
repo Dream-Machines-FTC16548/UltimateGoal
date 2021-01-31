@@ -121,7 +121,7 @@ public class TensorFlowWobbleGoalRedLeft extends LinearOpMode {
 //        sleep(10000);
 //        telemetry.clear();
         String objectCode = LABEL_NO_ELEMENT;
-        robot.strafeRightForTime(.25, 1.5 );
+        robot.strafeRightForTime(.3, 1.5 );
         robot.setPowerOfAllMotorsToForTime(.2, 0.75 );
         if (opModeIsActive()) {
             robot.timer.reset();
@@ -163,23 +163,26 @@ public class TensorFlowWobbleGoalRedLeft extends LinearOpMode {
                     }
                     robot.setPowerOfAllMotorsTo(0);
 
+                    robot.setPowerOfAllMotorsToForTime(.05, 1.0 );
+
                     // Turn Right
-                    robot.turnRightForTime(-.4, 1.0);
+                    robot.turnRightForTime(-.4, 1.5 );
 
                     // Move forward until blue line
-                    while (!isRed()) {
-                        robot.setPowerOfAllMotorsTo(.3);
+                    while (!isRed()){
+                        robot.setPowerOfAllMotorsTo( .3 );
                     }
                     robot.setPowerOfAllMotorsTo(0);
+
                     robot.timer.reset();
                     while (robot.timer.seconds() <= 1) {
-                        robot.wobbleGoalArm.setPower( -.3 );
+                        robot.wobbleGoalArm.setPower( -.5 );
                     }
                     robot.wobbleGoalClaw.setPosition(.5);
                     sleep(2000);
                     robot.timer.reset();
                     while(robot.timer.seconds() <= 1.5){
-                        robot.wobbleGoalArm.setPower(.35);
+                        robot.wobbleGoalArm.setPower(.3);
                     }
 
                     stop();
@@ -188,7 +191,9 @@ public class TensorFlowWobbleGoalRedLeft extends LinearOpMode {
                     while (!isWhite()) {
                         robot.setPowerOfAllMotorsTo(.3);
                     }
-                    robot.setPowerOfAllMotorsToForTime(.3, 3.0);
+                    robot.setPowerOfAllMotorsTo( 0 );
+
+                    robot.setPowerOfAllMotorsToForTime(.05, 1.0 );
 //                    double dist = robot.distanceFront.getDistance(DistanceUnit.INCH);
 //                      while (dist >= 5.0) {
 //                        robot.setPowerOfAllMotorsTo( .1 );
@@ -198,12 +203,23 @@ public class TensorFlowWobbleGoalRedLeft extends LinearOpMode {
 //                   }
 //                    robot.setPowerOfAllMotorsTo(0);
                     // Turn left
-                    robot.turnRightForTime(-.4, 1 );
+                    //robot.turnRightForTime(-.4, 1 );
                     // Move forward until red line
-                    while (!isRed()) {
-                        robot.setPowerOfAllMotorsTo( .3 );
-                    }
-                    robot.setPowerOfAllMotorsTo(0);
+                    //while (!isRed()) {
+                    //    robot.setPowerOfAllMotorsTo( .3 );
+                    //}
+                    //robot.setPowerOfAllMotorsTo(0);
+
+                    //robot.timer.reset();
+                    //while (robot.timer.seconds() <= 1) {
+                    //    robot.wobbleGoalArm.setPower(   -.3 );
+                    //}
+                    //robot.wobbleGoalClaw.setPosition(.5);
+                    //sleep(2000);
+                    //robot.timer.reset();
+                    //while(robot.timer.seconds() <= 1.5){
+                    //    robot.wobbleGoalArm.setPower(.35);
+                    //}
 
                     stop();
                 } else if (objectCode.equalsIgnoreCase(LABEL_SECOND_ELEMENT)) {
@@ -213,14 +229,25 @@ public class TensorFlowWobbleGoalRedLeft extends LinearOpMode {
                     }
                     robot.setPowerOfAllMotorsTo(0);
                     // Move forward a little
-                    robot.setPowerOfAllMotorsToForTime(.25, 1.5 );
+                    robot.setPowerOfAllMotorsToForTime(.05, 1.0 );
                     // Turn left
-                    robot.turnRightForTime(-.4, 1.0);
+                    //robot.turnRightForTime(-.4, 1.0);
                     // Move forward until red line
-                    while (!isRed()) {
-                        robot.setPowerOfAllMotorsTo(.1);
-                    }
-                    robot.setPowerOfAllMotorsTo(0);
+                    //while (!isRed()) {
+                    //    robot.setPowerOfAllMotorsTo(.1);
+                    //}
+                    //robot.setPowerOfAllMotorsTo(0);
+
+                    //robot.timer.reset();
+                    //while (robot.timer.seconds() <= 1) {
+                    //    robot.wobbleGoalArm.setPower(   -.3 );
+                    //}
+                    //robot.wobbleGoalClaw.setPosition(.5);
+                    //sleep(2000);
+                    //robot.timer.reset();
+                    //while(robot.timer.seconds() <= 1.5){
+                    //    robot.wobbleGoalArm.setPower(.35);
+                    //}
 
 
                     stop();
@@ -392,7 +419,7 @@ public class TensorFlowWobbleGoalRedLeft extends LinearOpMode {
 
         Color.RGBToHSV(robot.colorLeft.red() * 8, robot.colorLeft.green() * 8, robot.colorLeft.blue() * 8, hsvValues);
 
-//        telemetry.addData("RED= ", red);
+        telemetry.addData("RED= ", red);
 //        telemetry.addData("GREEN= ", green);
         telemetry.addData("hsv= ", hsvValues[0]);
         telemetry.update();
@@ -427,7 +454,7 @@ public class TensorFlowWobbleGoalRedLeft extends LinearOpMode {
     }
 
     public boolean isWhite() {
-        int alphaValue = robot.colorLeft.alpha();
+        int alphaValue = robot.colorRight.alpha();
         telemetry.addData("Alpha= ", alphaValue);
         telemetry.update();
         return (alphaValue >= 3000);
