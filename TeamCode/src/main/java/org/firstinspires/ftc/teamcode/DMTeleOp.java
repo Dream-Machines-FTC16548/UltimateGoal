@@ -77,10 +77,10 @@ public class DMTeleOp extends LinearOpMode {
             if (turn != 0) {
                 // We are turning
                 turning = true;
-                robot.frontLeft.setPower(Range.clip(power + turn, -0.6, 0.6));
-                robot.frontRight.setPower(Range.clip(power - turn, -0.6, 0.6));
-                robot.backLeft.setPower(Range.clip(power + turn, -0.6, 0.6));
-                robot.backRight.setPower(Range.clip(power - turn, -0.6, 0.6));
+                robot.frontLeft.setPower(Range.clip(power + turn, -0.5, 0.5));
+                robot.frontRight.setPower(Range.clip(power - turn, -0.5, 0.5));
+                robot.backLeft.setPower(Range.clip(power + turn, -0.5, 0.5));
+                robot.backRight.setPower(Range.clip(power - turn, -0.5, 0.5));
             } else {
                 // Just finished turning and let it settled down
                 if (turning) {
@@ -93,10 +93,10 @@ public class DMTeleOp extends LinearOpMode {
                     turning = false;
                 }
                 power = -power;
-                robot.frontLeft.setPower(Range.clip(power + side + correction, -0.6, 0.6));
-                robot.frontRight.setPower(Range.clip(power - side - correction, -0.6, 0.6));
-                robot.backLeft.setPower(Range.clip(power - side + correction, -0.6, 0.6));
-                robot.backRight.setPower(Range.clip(power + side - correction, -0.6, 0.6));
+                robot.frontLeft.setPower(Range.clip(power + side + correction, -0.5, 0.5));
+                robot.frontRight.setPower(Range.clip(power - side - correction, -0.5, 0.5));
+                robot.backLeft.setPower(Range.clip(power - side + correction, -0.5, 0.5));
+                robot.backRight.setPower(Range.clip(power + side - correction, -0.5, 0.5));
                 if (gamepad2.y) {
                     robot.ringGrabberArm.setPower(0.175);
                 }
@@ -116,10 +116,10 @@ public class DMTeleOp extends LinearOpMode {
                     robot.ringGrabberClaw.setPower(0);
                 }
                 if (gamepad2.dpad_up) {
-                    robot.wobbleGoalArm.setPower(0.5);
+                    robot.wobbleGoalArm.setPower(0.55);
                 }
                 else if (gamepad2.dpad_down) {
-                    robot.wobbleGoalArm.setPower(-0.5);
+                    robot.wobbleGoalArm.setPower(-0.55);
                 }
                 else {
                     robot.wobbleGoalArm.setPower(0);

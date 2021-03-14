@@ -26,7 +26,7 @@ import static org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocaliz
 
 @Autonomous(name = "Concept: TensorFlow Object Detection Left", group = "Concept")
 //  @Disabled
-public class TensorFlowWobbleGoalRedLeft extends LinearOpMode {
+public class TensorFlowWobbleGoalRedRight extends LinearOpMode {
     public DMHardware robot = new DMHardware();
     public static final String TFOD_MODEL_ASSET = "UltimateGoal.tflite";
     public static final String LABEL_FIRST_ELEMENT = "Quad";
@@ -121,7 +121,7 @@ public class TensorFlowWobbleGoalRedLeft extends LinearOpMode {
 //        sleep(10000);
 //        telemetry.clear();
         String objectCode = LABEL_NO_ELEMENT;
-        robot.strafeRightForTime(.25, 1.5 );
+        robot.strafeRightForTime(-.25, 1.5 );
         robot.setPowerOfAllMotorsToForTime(.2, 0.75 );
         if (opModeIsActive()) {
             robot.timer.reset();
@@ -155,34 +155,23 @@ public class TensorFlowWobbleGoalRedLeft extends LinearOpMode {
 
                 telemetry.addData("Object found: ", objectCode);
                 telemetry.update();
-                robot.strafeRightForTime(-.3, 1.5 );
+                robot.strafeRightForTime(.2, 2);
                 if (objectCode.equalsIgnoreCase(LABEL_NO_ELEMENT)) {
                     // Move forward until white line
-                    while (!isWhite()) {
+                    while (!isRed()) {
                         robot.setPowerOfAllMotorsTo( .3 );
                     }
                     robot.setPowerOfAllMotorsTo(0);
-
-                    // Turn Right
-                    robot.turnRightForTime(-.4, 1.0);
-
-                    // Move forward until blue line
-                    while (!isRed()) {
+                    robot.timer.reset();
+                    while (robot.timer.seconds() <= 1.12) {
+                        robot.wobbleGoalArm.setPower(-.15);
+                    }
+                    robot.strafeLeftForTime(.2, 1.5);
+                    while (!isWhite())
+                    {
                         robot.setPowerOfAllMotorsTo(.3);
-                    }
+                    }                    // Turn Right
                     robot.setPowerOfAllMotorsTo(0);
-                    robot.timer.reset();
-                    while (robot.timer.seconds() <= 1) {
-                        robot.wobbleGoalArm.setPower( -.3 );
-                    }
-                    robot.wobbleGoalClaw.setPosition(.5);
-                    sleep(2000);
-                    robot.timer.reset();
-                    while(robot.timer.seconds() <= 1.5){
-                        robot.wobbleGoalArm.setPower(.35);
-                    }
-
-                    stop();
                 } else if (objectCode.equalsIgnoreCase(LABEL_FIRST_ELEMENT)) {
                     // Move forward until distance sensor senses the wall
                     while (!isWhite()) {

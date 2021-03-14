@@ -15,10 +15,10 @@ public class MecanumDrive extends LinearOpMode {
         waitForStart();
 
         while (opModeIsActive()) {
-            robot.frontRight.setPower(0.5 * (gamepad1.left_stick_y + gamepad1.left_stick_x));
-            robot.frontLeft.setPower(0.5 * (gamepad1.left_stick_y - gamepad1.left_stick_x));
-            robot.backRight.setPower(0.5 * (gamepad1.left_stick_y + gamepad1.left_stick_x));
-            robot.backLeft.setPower(0.5 * (gamepad1.left_stick_y - gamepad1.left_stick_x));
+            robot.frontRight.setPower(0.3 * (gamepad1.left_stick_y + gamepad1.left_stick_x));
+            robot.frontLeft.setPower(0.3 * (gamepad1.left_stick_y - gamepad1.left_stick_x));
+            robot.backRight.setPower(0.3 * (gamepad1.left_stick_y + gamepad1.left_stick_x));
+            robot.backLeft.setPower(0.3 * (gamepad1.left_stick_y - gamepad1.left_stick_x));
 
             /*robot.frontRight.setPower(0.5 * (gamepad1.left_stick_y + gamepad1.left_stick_x + (-1 * gamepad1.right_stick_x - 0.77)));
             robot.frontLeft.setPower(0.5 * (gamepad1.left_stick_y - gamepad1.left_stick_x + (gamepad1.right_stick_x + 0.01)));
@@ -58,6 +58,25 @@ public class MecanumDrive extends LinearOpMode {
             }
             else {
                 robot.ringGrabberClaw.setPower(0);
+            }
+
+
+            if (gamepad2.dpad_up) {
+                robot.wobbleGoalArm.setPower(0.55);
+            }
+            else if (gamepad2.dpad_down) {
+                robot.wobbleGoalArm.setPower(-0.55);
+            }
+            else {
+                robot.wobbleGoalArm.setPower(0);
+            }
+
+
+            if (gamepad2.dpad_left) {
+                robot.wobbleGoalClaw.setPosition(0.1);
+            }
+            else if (gamepad2.dpad_left) {
+                robot.wobbleGoalClaw.setPosition(0.5);
             }
         }
 

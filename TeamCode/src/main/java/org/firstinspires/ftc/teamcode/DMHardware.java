@@ -15,11 +15,11 @@ import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
 
 public class DMHardware {
 
-    public DcMotor frontLeft, backLeft, frontRight, backRight, wobbleGoalArm, intakeMotor, ringGrabberArm;
+    public DcMotor frontLeft, backLeft, frontRight, backRight, wobbleGoalArm, intakeMotor, ringGrabberArm, shooter;
     public ColorSensor colorLeft, colorRight;
     public DistanceSensor distanceFront;
     public Servo wobbleGoalClaw, intakeServoLeft, intakeServoRight;
-    public CRServo ringGrabberClaw;
+    public CRServo ringGrabberClaw, conveyor;
 
     HardwareMap hwMap;
 
