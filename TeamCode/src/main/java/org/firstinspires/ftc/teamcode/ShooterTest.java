@@ -23,7 +23,8 @@ public class ShooterTest extends LinearOpMode {
                 robot.intakeServoRight.setPosition(0);
                 telemetry.addData("right position", robot.intakeServoRight.getPosition());
                 telemetry.update();
-            } else if (gamepad2.a) {
+            }
+            else if (gamepad2.a) {
                 robot.intakeServoLeft.setPosition(0);
                 robot.intakeServoRight.setPosition(1);
                 telemetry.addData("right position", robot.intakeServoRight.getPosition());
@@ -33,9 +34,13 @@ public class ShooterTest extends LinearOpMode {
             if (gamepad2.dpad_down) {
                 robot.intakeMotor.setPower(1);
                 robot.conveyor.setPower(1);
-            } else if (gamepad2.dpad_up) {
+            }
+            else if (gamepad2.dpad_up) {
                 robot.intakeMotor.setPower(-1);
                 robot.conveyor.setPower(-1);
+            }
+            else if  (gamepad2.b) {
+                robot.intakeMotor.setPower(0);
             }
             else {
                 robot.intakeMotor.setPower(0);
@@ -44,7 +49,8 @@ public class ShooterTest extends LinearOpMode {
             // Shooter
             if (gamepad1.right_bumper) {
                 robot.shooter.setPower(0.9);
-            } else if (gamepad1.left_bumper) {
+            }
+            else if (gamepad1.left_bumper) {
                 robot.shooter.setPower(-0.9);
             }
             else {
