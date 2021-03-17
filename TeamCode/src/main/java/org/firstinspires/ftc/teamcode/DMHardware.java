@@ -26,7 +26,7 @@ public class DMHardware {
     public ElapsedTime timer = new ElapsedTime();
     private WebcamName webcamName = null;
 
-    public void initTeleOpIMU(HardwareMap hwMap){
+    public void initTeleOpIMU(HardwareMap hwMap) {
 
         this.hwMap = hwMap;
 
@@ -46,6 +46,7 @@ public class DMHardware {
         conveyor = hwMap.crservo.get("conveyor");
         intakeServoLeft = hwMap.servo.get("intake_servo_left");
         intakeServoRight = hwMap.servo.get("intake_servo_right");
+        shooter = hwMap.dcMotor.get("shooter");
         // ringGrabberArm = hwMap.dcMotor.get("ring_arm");
         // ringGrabberClaw = hwMap.crservo.get("ring_claw");
         backRight.setDirection(DcMotor.Direction.REVERSE);
