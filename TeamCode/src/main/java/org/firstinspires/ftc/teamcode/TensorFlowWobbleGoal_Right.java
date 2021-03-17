@@ -154,8 +154,9 @@ public class TensorFlowWobbleGoal_Right extends LinearOpMode {
                 robot.strafeLeftForTime(.4, 2.25 );
                 if(objectCode.equalsIgnoreCase(LABEL_NO_ELEMENT)){
                     // Move forward until white line
-                    while(!isWhite()){
-                        robot.setPowerOfAllMotorsTo(.7);
+
+                    while(!isRed()){
+                        robot.setPowerOfAllMotorsTo(.5);
                     }
                     robot.setPowerOfAllMotorsTo(0);
 

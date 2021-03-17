@@ -15,18 +15,18 @@ import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
 
 public class DMHardware {
 
-    public DcMotor frontLeft, backLeft, frontRight, backRight, wobbleGoalArm, intakeMotor, ringGrabberArm;
+    public DcMotor frontLeft, backLeft, frontRight, backRight, wobbleGoalArm, intakeMotor, ringGrabberArm, shooter;
     public ColorSensor colorLeft, colorRight;
     public DistanceSensor distanceFront;
     public Servo wobbleGoalClaw, intakeServoLeft, intakeServoRight;
-    public CRServo ringGrabberClaw;
+    public CRServo ringGrabberClaw, conveyor;
 
     HardwareMap hwMap;
 
     public ElapsedTime timer = new ElapsedTime();
     private WebcamName webcamName = null;
 
-    public void initTeleOpIMU(HardwareMap hwMap){
+    public void initTeleOpIMU(HardwareMap hwMap) {
 
         this.hwMap = hwMap;
 
@@ -42,11 +42,13 @@ public class DMHardware {
         distanceFront = hwMap.get(DistanceSensor.class, "distance_front");
         wobbleGoalArm = hwMap.dcMotor.get("wobble_arm");
         wobbleGoalClaw = hwMap.servo.get("wobble_claw");
-//        intakeMotor = hwMap.dcMotor.get("intake_motor");
-//        intakeServoLeft = hwMap.servo.get("intake_servo_left");
-//        intakeServoRight = hwMap.servo.get("intake_servo_right");
-        ringGrabberArm = hwMap.dcMotor.get("ring_arm");
-        ringGrabberClaw = hwMap.crservo.get("ring_claw");
+        intakeMotor = hwMap.dcMotor.get("intake_motor");
+        conveyor = hwMap.crservo.get("conveyor");
+        intakeServoLeft = hwMap.servo.get("intake_servo_left");
+        intakeServoRight = hwMap.servo.get("intake_servo_right");
+        shooter = hwMap.dcMotor.get("shooter");
+        // ringGrabberArm = hwMap.dcMotor.get("ring_arm");
+        // ringGrabberClaw = hwMap.crservo.get("ring_claw");
         backRight.setDirection(DcMotor.Direction.REVERSE);
         frontRight.setDirection(DcMotor.Direction.REVERSE);
         wobbleGoalClaw.setPosition(0);
