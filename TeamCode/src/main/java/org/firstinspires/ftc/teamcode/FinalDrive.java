@@ -28,14 +28,14 @@ public class FinalDrive extends LinearOpMode {
 
             // Arm for intake
             if (gamepad2.y) {
-                robot.intakeServoLeft.setPosition(0.7);
-                robot.intakeServoRight.setPosition(0.3);
+                robot.intakeServoLeft.setPosition(0.6);
+                robot.intakeServoRight.setPosition(0.4);
                 telemetry.addData("right position", robot.intakeServoRight.getPosition());
                 telemetry.update();
             }
             else if (gamepad2.a) {
-                robot.intakeServoLeft.setPosition(0.3);
-                robot.intakeServoRight.setPosition(0.7);
+                robot.intakeServoLeft.setPosition(0.4);
+                robot.intakeServoRight.setPosition(0.6);
                 telemetry.addData("right position", robot.intakeServoRight.getPosition());
                 telemetry.update();
             }
@@ -72,7 +72,7 @@ public class FinalDrive extends LinearOpMode {
             if (gamepad2.dpad_left) {
                 robot.wobbleGoalClaw.setPosition(0.1);
             }
-            else if (gamepad2.dpad_left) {
+            else if (gamepad2.dpad_right) {
                 robot.wobbleGoalClaw.setPosition(0.5);
             }
         }
