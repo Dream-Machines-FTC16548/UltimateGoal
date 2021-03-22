@@ -13,29 +13,29 @@ public class FinalDrive extends LinearOpMode {
         robot.initTeleOpIMU(hardwareMap);
         waitForStart();
 
-        robot.intakeServoLeft.setPosition(0);
-        robot.intakeServoRight.setPosition(0);
+        // robot.intakeServoLeft.setPosition(0);
+        // robot.intakeServoRight.setPosition(0);
 
         while (opModeIsActive()) {
 
-            robot.frontRight.setPower(0.3 * ((gamepad1.left_stick_y + gamepad1.left_stick_x) - gamepad1.right_stick_x));
-            robot.frontLeft.setPower(0.3 * ((gamepad1.left_stick_y - gamepad1.left_stick_x) + gamepad1.right_stick_x));
-            robot.backRight.setPower(0.3 * ((gamepad1.left_stick_y - gamepad1.left_stick_x) - gamepad1.right_stick_x));
-            robot.backLeft.setPower(0.3 * ((gamepad1.left_stick_y + gamepad1.left_stick_x) + gamepad1.right_stick_x));
+            robot.frontRight.setPower(-0.3 * ((gamepad1.left_stick_y + gamepad1.left_stick_x) - gamepad1.right_stick_x));
+            robot.frontLeft.setPower(-0.3 * ((gamepad1.left_stick_y - gamepad1.left_stick_x) + gamepad1.right_stick_x));
+            robot.backRight.setPower(-0.3 * ((gamepad1.left_stick_y - gamepad1.left_stick_x) - gamepad1.right_stick_x));
+            robot.backLeft.setPower(-0.3 * ((gamepad1.left_stick_y + gamepad1.left_stick_x) + gamepad1.right_stick_x));
 
 
             robot.wobbleGoalArm.setPower(gamepad2.right_stick_y);
 
             // Arm for intake
             if (gamepad2.y) {
-                robot.intakeServoLeft.setPosition(1);
-                robot.intakeServoRight.setPosition(0);
+                robot.intakeServoLeft.setPosition(0.7);
+                robot.intakeServoRight.setPosition(0.3);
                 telemetry.addData("right position", robot.intakeServoRight.getPosition());
                 telemetry.update();
             }
             else if (gamepad2.a) {
-                robot.intakeServoLeft.setPosition(0);
-                robot.intakeServoRight.setPosition(1);
+                robot.intakeServoLeft.setPosition(0.3);
+                robot.intakeServoRight.setPosition(0.7);
                 telemetry.addData("right position", robot.intakeServoRight.getPosition());
                 telemetry.update();
             }
