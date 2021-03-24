@@ -18,10 +18,10 @@ public class FinalDrive extends LinearOpMode {
 
         while (opModeIsActive()) {
 
-            robot.frontRight.setPower(-0.3 * ((gamepad1.left_stick_y + gamepad1.left_stick_x) - gamepad1.right_stick_x));
-            robot.frontLeft.setPower(-0.3 * ((gamepad1.left_stick_y - gamepad1.left_stick_x) + gamepad1.right_stick_x));
-            robot.backRight.setPower(-0.3 * ((gamepad1.left_stick_y - gamepad1.left_stick_x) - gamepad1.right_stick_x));
-            robot.backLeft.setPower(-0.3 * ((gamepad1.left_stick_y + gamepad1.left_stick_x) + gamepad1.right_stick_x));
+            robot.frontRight.setPower(-0.75 * ((gamepad1.left_stick_y + gamepad1.left_stick_x) + gamepad1.right_stick_x));
+            robot.frontLeft.setPower(-0.75 * ((gamepad1.left_stick_y - gamepad1.left_stick_x) - gamepad1.right_stick_x));
+            robot.backRight.setPower(-0.75 * ((gamepad1.left_stick_y - gamepad1.left_stick_x) + gamepad1.right_stick_x));
+            robot.backLeft.setPower(-0.75 * ((gamepad1.left_stick_y + gamepad1.left_stick_x) - gamepad1.right_stick_x));
 
 
             robot.wobbleGoalArm.setPower(gamepad2.right_stick_y);
@@ -59,10 +59,10 @@ public class FinalDrive extends LinearOpMode {
 
             // Shooter
             if (gamepad1.right_bumper) {
-                robot.shooter.setPower(0.9);
+                robot.shooter.setPower(0.7);
             }
             else if (gamepad1.left_bumper) {
-                robot.shooter.setPower(-0.9);
+                robot.shooter.setPower(-0.7);
             }
             else {
                 robot.shooter.setPower(0);
