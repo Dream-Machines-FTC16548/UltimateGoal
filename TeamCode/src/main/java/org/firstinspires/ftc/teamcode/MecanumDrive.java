@@ -38,7 +38,7 @@ public class MecanumDrive extends LinearOpMode {
             robot.backLeft.setPower(0.5 * (gamepad1.right_stick_y - gamepad1.right_stick_x));*/
 
 
-            if (gamepad2.y) {
+            /*if (gamepad2.y) {
                 robot.ringGrabberArm.setPower(0.175);
             }
             else if (gamepad2.a) {
@@ -46,26 +46,26 @@ public class MecanumDrive extends LinearOpMode {
             }
             else {
                 robot.ringGrabberArm.setPower(0);
-            }
+            }*/
 
 
 
-            if (gamepad2.x) {
+            /*if (gamepad2.x) {
                 robot.ringGrabberClaw.setPower(0.75);
             }
             else if (gamepad2.b) {
-                robot.ringGrabberClaw.setPower(-0.75);
+                robot.ringGrabberClaw.setPower(-0.75);./ad
             }
             else {
                 robot.ringGrabberClaw.setPower(0);
-            }
+            }*/
 
 
             if (gamepad2.dpad_up) {
-                robot.wobbleGoalArm.setPower(0.55);
+                robot.wobbleGoalArm.setPower(0.6);
             }
             else if (gamepad2.dpad_down) {
-                robot.wobbleGoalArm.setPower(-0.55);
+                robot.wobbleGoalArm.setPower(-0.5);
             }
             else {
                 robot.wobbleGoalArm.setPower(0);
@@ -73,9 +73,9 @@ public class MecanumDrive extends LinearOpMode {
 
 
             if (gamepad2.dpad_left) {
-                robot.wobbleGoalClaw.setPosition(0.1);
+                robot.wobbleGoalClaw.setPosition(0);
             }
-            else if (gamepad2.dpad_left) {
+            else if (gamepad2.dpad_right) {
                 robot.wobbleGoalClaw.setPosition(0.5);
             }
         }
