@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 
-@TeleOp (group = "DreamMachines", name = "FinalDriveIThinkidrk")
+@TeleOp (group = "DreamMachines", name = "FinalDrive")
 public class FinalDrive extends LinearOpMode {
     public DMHardware robot = new DMHardware();
 
@@ -43,11 +43,11 @@ public class FinalDrive extends LinearOpMode {
             // Intake and Conveyor
             if (gamepad2.dpad_down) {
                 robot.intakeMotor.setPower(1);
-                robot.conveyor.setPower(1);
+                robot.conveyor.setPower(-1);
             }
             else if (gamepad2.dpad_up) {
                 robot.intakeMotor.setPower(-1);
-                robot.conveyor.setPower(-1);
+                robot.conveyor.setPower(11);
             }
             else if  (gamepad2.b) {
                 robot.intakeMotor.setPower(0);
@@ -59,10 +59,10 @@ public class FinalDrive extends LinearOpMode {
 
             // Shooter
             if (gamepad1.right_bumper) {
-                robot.shooter.setPower(0.7);
+                robot.shooter.setPower(0.65);
             }
             else if (gamepad1.left_bumper) {
-                robot.shooter.setPower(-0.7);
+                robot.shooter.setPower(0.25);
             }
             else {
                 robot.shooter.setPower(0);
